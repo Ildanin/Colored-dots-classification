@@ -1,7 +1,7 @@
 import pygame as pg
 
 class Dot:
-    def __init__(self, screen, x: float, y: float, radius: float, color: tuple[int, int, int], border_width: int, border_color: tuple[int, int, int] = (255, 255, 255)) -> None:
+    def __init__(self, screen: pg.Surface, x: float, y: float, radius: float, color: tuple[int, int, int], border_width: int, border_color: tuple[int, int, int] = (255, 255, 255)) -> None:
         self.screen = screen
         self.x = x
         self.y = y

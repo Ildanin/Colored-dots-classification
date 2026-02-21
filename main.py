@@ -2,9 +2,16 @@ from os import environ
 environ["PYGAME_HIDE_SUPPORT_PROMPT"] = '1'
 import pygame as pg
 from network import Network
-from constants import *
+from settings import *
 from dotClass import *
-from utiles import *
+
+def get_data(dotset: list[Dot], width: int, height: int) -> tuple[list, list]:
+    dataset = []
+    answerset = []
+    for dot in dotset:
+        dataset.append((dot.x / width, dot.y / height))
+        answerset.append([factor/255 for factor in dot.color])
+    return(dataset, answerset)
 
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 clock = pg.Clock()
@@ -37,7 +44,7 @@ while True:
 
     #game processes
     if dots != []:
-        dataset, answerset = generate_data(dots, WIDTH, HEIGHT)
+        dataset, answerset = get_data(dots, WIDTH, HEIGHT)
         network.train_vanilla(dataset, answerset, ALPHA, CYCLES, False)
 
     #rendering
