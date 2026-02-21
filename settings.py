@@ -20,4 +20,5 @@ COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 BORDER_COLOR = (255, 255, 255)
 
 #Other
+
 COLOR_STEP = 10
